@@ -18,7 +18,7 @@ w0 = 1  # 图片原始宽度
 h0 = 1  # 图片原始高度
 
 # 指定缩放后的图像大小
-DEST_SIZE = 600, 900
+DEST_SIZE = 400, 600
 
 # 图片状态
 LABEL_IMG_STATUS_NORMAL = '正常'
@@ -75,7 +75,7 @@ class LabelTool(Tk):
         self.jsonEntry = Entry(self.frame)
         self.jsonEntry.grid(row=1, column=1, sticky=W + E)
 
-        self.ldBtn = Button(self.frame, text="加载", font=("微软雅黑", 15, 'bold'), command=self.load)
+        self.ldBtn = Button(self.frame, text="加载", font=("微软雅黑", 13, 'bold'), command=self.load)
         self.ldBtn.grid(row=0, column=2, rowspan=2, sticky=W + E + N + S)
 
         # main panel for labeling
@@ -83,7 +83,7 @@ class LabelTool(Tk):
         self.mainPanel.bind("<Motion>", self.mouseMove)
         self.mainPanel.grid(row=2, column=1, rowspan=4, sticky=W + N)
 
-        self.infoEntry = Entry(self.frame, textvariable=self.label_text_info, font=("微软雅黑", 15, 'bold'))
+        self.infoEntry = Entry(self.frame, textvariable=self.label_text_info, font=("微软雅黑", 13, 'bold'))
         self.infoEntry.grid(row=6, column=1, sticky=W + N + E + S)
         self.infoEntry.bind("<FocusOut>", self.update_status)
 
@@ -91,22 +91,22 @@ class LabelTool(Tk):
         self.lb1 = Label(self.frame, text='标注内容:')
         self.lb1.grid(row=2, column=2, sticky=W + N)
 
-        self.listbox = Listbox(self.frame, width=40, height=30, font=("微软雅黑", 14))
+        self.listbox = Listbox(self.frame, width=40, height=30, font=("微软雅黑", 12))
         self.listbox.grid(row=3, column=2, sticky=W + E + N)
 
-        self.btnNormal = Button(self.frame, text='正常', font=("微软雅黑", 15, 'bold'), height=2, fg='blue', command=self.normal)
+        self.btnNormal = Button(self.frame, text='正常', font=("微软雅黑", 13, 'bold'), height=2, fg='blue', command=self.normal)
         self.btnNormal.grid(row=4, column=2, sticky=W + E)
-        self.btnUnNormal = Button(self.frame, text='倾斜/模糊', font=("微软雅黑", 15, 'bold'), height=2, fg='blue', command=self.unnormal)
+        self.btnUnNormal = Button(self.frame, text='倾斜/模糊', font=("微软雅黑", 13, 'bold'), height=2, fg='blue', command=self.unnormal)
         self.btnUnNormal.grid(row=5, column=2, sticky=W + E)
-        self.btnWrong = Button(self.frame, text='有问题', font=("微软雅黑", 15, 'bold'), height=2, fg='blue', command=self.wrong)
+        self.btnWrong = Button(self.frame, text='有问题', font=("微软雅黑", 13, 'bold'), height=2, fg='blue', command=self.wrong)
         self.btnWrong.grid(row=6, column=2, sticky=W + E)
 
         # control panel for image navigation
         self.ctrPanel = Frame(self.frame)
         self.ctrPanel.grid(row=7, column=1, columnspan=2, sticky=W + E)
-        self.prevBtn = Button(self.ctrPanel, text='<< 前一张', font=("微软雅黑", 15, 'bold'), width=20, height=2, command=self.prevImage)
+        self.prevBtn = Button(self.ctrPanel, text='<< 前一张', font=("微软雅黑", 13, 'bold'), width=20, height=2, command=self.prevImage)
         self.prevBtn.pack(side=LEFT, padx=5, pady=3)
-        self.nextBtn = Button(self.ctrPanel, text='下一张 >>', font=("微软雅黑", 15, 'bold'), width=20, height=2, command=self.nextImage)
+        self.nextBtn = Button(self.ctrPanel, text='下一张 >>', font=("微软雅黑", 13, 'bold'), width=20, height=2, command=self.nextImage)
         self.nextBtn.pack(side=LEFT, padx=5, pady=3)
         self.progLabel = Label(self.ctrPanel, text="Progress:     /    ")
         self.progLabel.pack(side=LEFT, padx=5)
