@@ -264,9 +264,15 @@ class LabelTool(Tk):
         # 校验能否对的上?
         for image_path in glob.glob(os.path.join(image_base_path, "*.jpg")):
             _, image_name = os.path.split(image_path)
+            prefix = str(image_name.split('_')[0])+'_'
+            json_files = glob.glob(os.path.join(json_base_path, prefix+'*.json'))
+
             json_name = image_name.replace('.jpg', '.json')
             json_path = os.path.join(json_base_path, json_name)
             json_dict = None
+
+            if len(json_files) != 1:
+                json_path = json_files[0]
 
             if not os.path.exists(json_path):
                 # 有可能是因为图片倾斜没有进行标注
