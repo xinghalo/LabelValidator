@@ -271,7 +271,7 @@ class LabelTool(Tk):
             json_path = os.path.join(json_base_path, json_name)
             json_dict = None
 
-            if len(json_files) != 1:
+            if len(json_files) > 0:
                 json_path = json_files[0]
 
             if not os.path.exists(json_path):
